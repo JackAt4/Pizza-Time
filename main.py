@@ -3,10 +3,7 @@ Title: Pizza Time
 Description: Manages pizza orders, checkout, and inventory for a local pizza store
 Author: Aiden Stark
 """
-
-import order
-import checkout
-import inventory
+import order, checkout, inventory
 
 print("Welcome to Pizza Time!")
 print("Select an option below")
