@@ -1,11 +1,3 @@
-"""
-Todo:
-- Get total price
-- Add tax (Boo!)
-- Accept Payment
-- Give Change
-"""
-
 def start(order):
 
     subtotal = 0
@@ -22,6 +14,7 @@ def start(order):
     print("Subtotal: $" + str(subtotal))
     print("Tax = $" + str(tax))
     print("Total: $" + str(total))
+    save(order, total)
     payment(total)
 
 def payment(total):
@@ -41,3 +34,11 @@ def payment(total):
             break
         else:
             print("Cash or Credit only.")
+            input("(Press ENTER to continue)")
+
+def save(order, total):
+    with open("data.piza", "a") as orders:
+        for i in order:
+            orders.write(f"{i.type}, {i.size}, {i.quantity}, {i.price}, ")
+        orders.write(f"{total}")
+        orders.write("\n")
